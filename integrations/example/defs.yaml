@@ -1,0 +1,16 @@
+name: com.newrelic.example
+description: Reports random numbers as metrics and inventory
+protocol_version: 1
+os: linux
+
+commands:
+    go:
+      command:
+          - ./bin/go-example-plugin
+      prefix: services/go-example
+      interval: 15
+    python:
+      command:
+          - ./bin/py-example-plugin.py
+      prefix: services/py-example
+      interval: 15

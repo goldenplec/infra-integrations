@@ -1,0 +1,17 @@
+integration_name: com.newrelic.example
+
+instances:
+  - name: go-example
+    command: go
+    arguments:
+        environment: golang
+    labels:
+        env: production
+        role: load_balancer
+  - name: python-example
+    command: python
+    arguments:
+        environment: python
+    labels:
+        env: production
+        role: load_balancer

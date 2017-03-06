@@ -1,0 +1,122 @@
+{
+  "account_id": ACCOUNT_ID,
+  "title": "Nginx",
+  "icon": "bar-chart",
+  "filter": {
+    "key_names": ["hostname", "label.env", "label.role", "software.edition", "software.version"],
+    "event_types": ["LoadBalancerSample"],
+    "filter_first": false
+  },
+  "widgets": [{
+    "title": "Requests Per Second",
+    "nrql": "SELECT AVERAGE(`provider.requestsPerSecond`) as 'Requests' FROM LoadBalancerSample WHERE provider = 'NGINX' TIMESERIES until 1 minutes ago",
+    "process_as": "line_chart",
+    "width": 1,
+    "height": 1,
+    "row": 1,
+    "column": 1,
+    "event_types": ["LoadBalancerSample"],
+    "facet": null,
+    "customizations": null,
+    "notes": null
+  }, {
+    "title": "Requests Per Second, by Host",
+    "nrql": "SELECT AVERAGE(`provider.requestsPerSecond`) as 'Requests' FROM LoadBalancerSample WHERE provider = 'NGINX' facet hostname TIMESERIES until 1 minutes ago",
+    "process_as": "faceted_line_chart",
+    "width": 1,
+    "height": 1,
+    "row": 1,
+    "column": 2,
+    "event_types": ["LoadBalancerSample"],
+    "facet": "hostname",
+    "customizations": null,
+    "notes": null
+  }, {
+    "title": "Nginx",
+    "nrql": null,
+    "width": 1,
+    "height": 1,
+    "row": 1,
+    "column": 3,
+    "notes": null,
+    "event_types": null,
+    "facet": null,
+    "agent_ids": null,
+    "duration": null,
+    "metrics": null,
+    "raw_metric_name": null,
+    "end_time": null,
+    "source_account_id": null,
+    "customizations": {
+      "markdown": "::: beyond\n **NGINX** \n\nNGINX is a free, open-source, high-performance HTTP server, reverse proxy, and IMAP/POP3 proxy server.\n\n___\n\n ![](https://integrations.nr-assets.net/icons/dashboards.png) [View all integration dashboards](/accounts/ACCOUNT_ID/dashboards?filter=infrastructurepro@newrelic.com)\n:::"
+    }
+  }, {
+    "title": "Connections Accepted Per Second",
+    "nrql": "SELECT average(`provider.connectionsAcceptedPerSecond`) as 'Connections Accepted' FROM LoadBalancerSample WHERE provider = 'NGINX' TIMESERIES until 1 minutes ago",
+    "process_as": "line_chart",
+    "width": 1,
+    "height": 1,
+    "row": 2,
+    "column": 1,
+    "event_types": ["LoadBalancerSample"],
+    "facet": null,
+    "customizations": null,
+    "notes": null
+  }, {
+    "title": "Active Connections",
+    "nrql": "SELECT average(`provider.connectionsActive`) as 'Active Connections' FROM LoadBalancerSample WHERE provider = 'NGINX' TIMESERIES until 1 minutes ago",
+    "process_as": "line_chart",
+    "width": 1,
+    "height": 1,
+    "row": 2,
+    "column": 2,
+    "event_types": ["LoadBalancerSample"],
+    "facet": null,
+    "customizations": null,
+    "notes": null
+  }, {
+    "title": "Connections Dropped Per Second",
+    "nrql": "SELECT average(`provider.connectionsDroppedPerSecond`) as 'Connections Dropped' FROM LoadBalancerSample WHERE provider = 'NGINX' TIMESERIES until 1 minutes ago",
+    "process_as": "line_chart",
+    "width": 1,
+    "height": 1,
+    "row": 2,
+    "column": 3,
+    "event_types": ["LoadBalancerSample"],
+    "facet": null,
+    "customizations": null,
+    "notes": null
+  }, {
+    "title": "Nginx Inventory",
+    "nrql": null,
+    "width": 1,
+    "height": 1,
+    "row": 3,
+    "column": 1,
+    "notes": null,
+    "event_types": null,
+    "facet": null,
+    "agent_ids": null,
+    "duration": null,
+    "metrics": null,
+    "raw_metric_name": null,
+    "end_time": null,
+    "source_account_id": null,
+    "customizations": {
+      "sources": ["services/nginx"],
+      "filters": {}
+    }
+  }, {
+    "title": "Nginx events",
+    "nrql": "SELECT * FROM InfrastructureEvent WHERE provider = 'NGINX' AND source LIKE 'services/nginx%' SINCE last week LIMIT 20",
+    "process_as": "event_feed",
+    "width": 1,
+    "height": 1,
+    "row": 3,
+    "column": 2,
+    "event_types": ["InfrastructureEvent"],
+    "facet": null,
+    "customizations": null,
+    "notes": null
+  }]
+}

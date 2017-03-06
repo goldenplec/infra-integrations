@@ -1,0 +1,9 @@
+name: rabbitmq
+description: Reports status of a RabbitMQ server
+
+source:
+  - command:
+     - ./bin/$os_$arch/rabbitmq-status
+    prefix: services/rabbitmq
+    type: inventory
+    interval: 15

@@ -1,0 +1,9 @@
+name: cassandra
+description: Reports statistics on Cassandra cluster
+
+source:
+  - command:
+     - ./bin/$os_$arch/cassandra-status
+    prefix: services/cassandra
+    type: inventory
+    interval: 15
