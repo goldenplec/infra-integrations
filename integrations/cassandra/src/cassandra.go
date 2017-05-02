@@ -1,7 +1,10 @@
 package main
 
 import (
+	"strconv"
+
 	sdk_args "github.com/newrelic/infra-integrations-sdk/args"
+	"github.com/newrelic/infra-integrations-sdk/jmx"
 	"github.com/newrelic/infra-integrations-sdk/log"
 	"github.com/newrelic/infra-integrations-sdk/sdk"
 )
@@ -30,14 +33,25 @@ func main() {
 	fatalIfErr(err)
 	log.SetupLogging(args.Verbose)
 
+	fatalIfErr(jmx.Open(args.Hostname, strconv.Itoa(args.Port), args.Username, args.Password))
+	defer jmx.Close()
+
 	if args.All || args.Metrics {
-		rawMetrics, err := getMetrics()
+		rawMetrics, allKeyspaces, err := getMetrics()
 		fatalIfErr(err)
 
 		ms := integration.NewMetricSet("DatastoreSample", "Cassandra")
-		populateMetrics(ms, rawMetrics)
 
+		populateMetrics(ms, rawMetrics, metricsDefinition)
+		populateMetrics(ms, rawMetrics, commonDefinition)
+
+		for _, keyspaceMetrics := range allKeyspaces {
+			ms := integration.NewMetricSet("DatastoreSample", "CassandraKeyspace")
+			populateMetrics(ms, keyspaceMetrics, keyspaceDefinition)
+			populateMetrics(ms, rawMetrics, commonDefinition)
+		}
 	}
+
 	if args.All || args.Inventory {
 		rawInventory, err := getInventory()
 		fatalIfErr(err)
