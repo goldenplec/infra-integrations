@@ -39,6 +39,14 @@
 			"versionExact": "v0.2"
 		},
 		{
+			"checksumSHA1": "eO7UmhVmSDBKX10lNq8QJ3VsAVc=",
+			"path": "github.com/newrelic/infra-integrations-sdk/jmx",
+			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
+			"revisionTime": "2017-05-19T05:44:26Z",
+			"version": "v0.2",
+			"versionExact": "v0.2"
+		},
+		{
 			"checksumSHA1": "PlLKWQqm6PQj+v/QQ7gGaCWV7ow=",
 			"path": "github.com/newrelic/infra-integrations-sdk/log",
 			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
@@ -67,6 +75,12 @@
 			"path": "golang.org/x/sys/unix",
 			"revision": "9c9d83fe39ed3fd2d9249fcf6b755891fff54b03",
 			"revisionTime": "2017-05-06T01:47:39Z"
+		},
+		{
+			"checksumSHA1": "fALlQNY1fM99NesfLJ50KguWsio=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b",
+			"revisionTime": "2017-04-07T17:21:22Z"
 		}
 	],
 	"rootPath": "github.com/newrelic/infra-integrations"
