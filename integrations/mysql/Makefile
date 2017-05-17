@@ -51,17 +51,11 @@ endif
 
 validate: validate-deps validate-only
 
-compile-deps:
-	@echo "=== $(INTEGRATION) === [ compile-deps ]: installing build dependencies..."
-	@go get -v -d -t ./...
-
-compile-only:
+compile:
 	@echo "=== $(INTEGRATION) === [ compile ]: building $(BINARY_NAME)..."
 	@go build -v -o bin/$(BINARY_NAME) $(GO_FILES)
 
-compile: compile-deps compile-only
-
-test-deps: compile-deps
+test-deps:
 	@echo "=== $(INTEGRATION) === [ test-deps ]: installing testing dependencies..."
 	@go get -v $(TEST_DEPS)
 
@@ -72,4 +66,4 @@ test-only:
 
 test: test-deps test-only
 
-.PHONY: all build clean validate-deps validate-only validate compile-deps compile-only compile test-deps test-only test
+.PHONY: all build clean validate-deps validate-only validate compile test-deps test-only test

@@ -1,0 +1,71 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"path": "appengine/cloudsql",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "Ksl4kXr4ty0HwjrLRLZOrNz05Bw=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "ba1b36c82c5e05c4f912a88eab0dcd91a171688f",
+			"revisionTime": "2017-03-14T19:23:53Z",
+			"version": "v0.11.5",
+			"versionExact": "v0.11.5"
+		},
+		{
+			"checksumSHA1": "xmTgJXWHguGKHPuZE50FIbs88L0=",
+			"path": "github.com/go-sql-driver/mysql",
+			"revision": "a0583e0143b1624142adab07e0e97fe106d99561",
+			"revisionTime": "2016-12-01T11:50:36Z",
+			"version": "v1.3",
+			"versionExact": "v1.3"
+		},
+		{
+			"checksumSHA1": "iuEJxoKbVSK+7Pi5tNqjPTFKB9w=",
+			"path": "github.com/newrelic/infra-integrations-sdk/args",
+			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
+			"revisionTime": "2017-05-16T14:49:59Z",
+			"version": "v0.1",
+			"versionExact": "v0.1"
+		},
+		{
+			"checksumSHA1": "tRJ8pVl2F4BFxr59F90tjAE5RSY=",
+			"path": "github.com/newrelic/infra-integrations-sdk/cache",
+			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
+			"revisionTime": "2017-05-16T14:49:59Z"
+		},
+		{
+			"checksumSHA1": "PlLKWQqm6PQj+v/QQ7gGaCWV7ow=",
+			"path": "github.com/newrelic/infra-integrations-sdk/log",
+			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
+			"revisionTime": "2017-05-16T14:49:59Z",
+			"version": "v0.1",
+			"versionExact": "v0.1"
+		},
+		{
+			"checksumSHA1": "gf5CYmm79FoKvZ3NU7BkOK7qhbk=",
+			"path": "github.com/newrelic/infra-integrations-sdk/metric",
+			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
+			"revisionTime": "2017-05-16T14:49:59Z",
+			"version": "v0.1",
+			"versionExact": "v0.1"
+		},
+		{
+			"checksumSHA1": "0U/4e8cZ1vkHha4Q5/s9U3twSJI=",
+			"path": "github.com/newrelic/infra-integrations-sdk/sdk",
+			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
+			"revisionTime": "2017-05-16T14:49:59Z",
+			"version": "v0.1",
+			"versionExact": "v0.1"
+		},
+		{
+			"checksumSHA1": "Dbw6GrXllNPecT0AnoOyAiv66EI=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "9c9d83fe39ed3fd2d9249fcf6b755891fff54b03",
+			"revisionTime": "2017-05-06T01:47:39Z"
+		}
+	],
+	"rootPath": "github.com/newrelic/infra-integrations"
+}
