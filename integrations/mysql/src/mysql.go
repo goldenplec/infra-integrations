@@ -18,7 +18,7 @@ type argumentList struct {
 	Hostname              string `default:"localhost" help:"Hostname or IP where MySQL is running."`
 	Port                  int    `default:"3306" help:"Port on which MySQL server is listening."`
 	Username              string `help:"Username for accessing the database."`
-	Password              string `help:"Passowrd for the given user."`
+	Password              string `help:"Password for the given user."`
 	Database              string `help:"Database name"`
 	ExtendedMetrics       bool   `default:"false" help:"Enable extended metrics"`
 	ExtendedInnodbMetrics bool   `default:"false" help:"Enable InnoDB extended metrics"`
