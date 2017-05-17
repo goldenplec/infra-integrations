@@ -144,3 +144,32 @@ func TestGetRawData(t *testing.T) {
 		t.Error()
 	}
 }
+
+func TestPopulateMetricsWithZeroValuesInData(t *testing.T) {
+	rawMetrics := map[string]interface{}{
+		"Qcache_free_blocks":   0,
+		"Qcache_total_blocks":  0,
+		"Qcache_not_cached":    0,
+		"Qcache_hits":          0,
+		"Queries":              0,
+		"Threads_created":      0,
+		"Connections":          0,
+		"Key_blocks_unused":    0,
+		"Key_cache_block_size": 0,
+		"Key_buffer_size":      0,
+	}
+	ms := metric.NewMetricSet("eventType", "provider")
+	populatePartialMetrics(&ms, rawMetrics, defaultMetrics)
+	populatePartialMetrics(&ms, rawMetrics, extendedMetrics)
+	populatePartialMetrics(&ms, rawMetrics, myisamMetrics)
+
+	testMetrics := []string{"provider.qCacheUtilization", "provider.qCacheHitRatio", "provider.threadCacheMissRate", "provider.keyCacheUtilization"}
+
+	expected := float64(0)
+	for _, metricName := range testMetrics {
+		actual, _ := ms[metricName]
+		if actual != expected {
+			t.Errorf("For metric '%s', expected value: %f. Actual value: %f", metricName, expected, actual)
+		}
+	}
+}

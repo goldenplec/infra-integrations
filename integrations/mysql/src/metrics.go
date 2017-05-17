@@ -1,6 +1,8 @@
 package main
 
-import "github.com/newrelic/infra-integrations-sdk/metric"
+import (
+	"github.com/newrelic/infra-integrations-sdk/metric"
+)
 
 var defaultMetrics = map[string][]interface{}{
 	"provider.abortedClientsPerSecond":                 {"Aborted_clients", metric.COUNTER},
@@ -51,7 +53,9 @@ func qCacheUtilization(metrics map[string]interface{}) (float64, bool) {
 	qCacheFreeBlocks, ok1 := metrics["Qcache_free_blocks"].(int)
 	qCacheTotalBlocks, ok2 := metrics["Qcache_total_blocks"].(int)
 
-	if ok1 && ok2 {
+	if qCacheTotalBlocks == 0 {
+		return 0, true
+	} else if ok1 && ok2 {
 		return 1 - (float64(qCacheFreeBlocks) / float64(qCacheTotalBlocks)), true
 	}
 	return 0, false
@@ -61,7 +65,9 @@ func qCacheHitRatio(metrics map[string]interface{}) (float64, bool) {
 	qCacheHits, ok1 := metrics["Qcache_hits"].(int)
 	queries, ok2 := metrics["Queries"].(int)
 
-	if ok1 && ok2 {
+	if queries == 0 {
+		return 0, true
+	} else if ok1 && ok2 {
 		return float64(qCacheHits) / float64(queries), true
 	}
 	return 0, false
@@ -105,7 +111,9 @@ func threadCacheMissRate(metrics map[string]interface{}) (float64, bool) {
 	threadsCreated, ok1 := metrics["Threads_created"].(int)
 	connections, ok2 := metrics["Connections"].(int)
 
-	if ok1 && ok2 {
+	if connections == 0 {
+		return 0, true
+	} else if ok1 && ok2 {
 		return float64(threadsCreated) / float64(connections), true
 	}
 	return 0, false
@@ -157,7 +165,9 @@ func keyCacheUtilization(metrics map[string]interface{}) (float64, bool) {
 	keyCacheBlockSize, ok2 := metrics["key_cache_block_size"].(int)
 	keyBufferSize, ok3 := metrics["key_buffer_size"].(int)
 
-	if ok1 && ok2 && ok3 {
+	if keyBufferSize == 0 {
+		return 0, true
+	} else if ok1 && ok2 && ok3 {
 		return 1 - (float64(keyBlocksUnused) * float64(keyCacheBlockSize) / float64(keyBufferSize)), true
 	}
 	return 0, false
