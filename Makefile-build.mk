@@ -1,7 +1,7 @@
 VALIDATE_DEPS     = github.com/golang/lint/golint
 TEST_DEPS         = github.com/axw/gocov/gocov github.com/AlekSi/gocov-xml
 
-build: clean validate compile test
+build: clean validate test compile
 
 $(INTS):
 	@if [ -f $(INTEGRATIONS_DIR)/$@/Makefile ]; then \
@@ -25,12 +25,12 @@ endif
 compile:
 	@echo "=== Main === [ compile ]: building the following integrations: $(INTS)"
 ifeq ($(INTEGRATIONS),all)
-	@TARGET=compile-only $(MAKE) --no-print-directory compile-deps $(INTS)
+	@TARGET=compile $(MAKE) --no-print-directory $(INTS)
 else
 	@TARGET=compile $(MAKE) --no-print-directory $(INTS)
 endif
 
-test-deps: compile-deps
+test-deps:
 	@echo "=== Main === [ test-deps ]: installing testing dependencies..."
 	@go get -v $(TEST_DEPS)
 
@@ -38,7 +38,7 @@ test:
 	@echo "=== Main === [ test ]: running unit tests for the following integrations: $(INTS)"
 ifeq ($(INTEGRATIONS),all)
 	@$(MAKE) --no-print-directory test-deps
-	gocov test ./... | gocov-xml > coverage.xml
+	gocov test ./integrations/... | gocov-xml > coverage.xml
 else
 	@TARGET=test $(MAKE) --no-print-directory $(INTS)
 endif

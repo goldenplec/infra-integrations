@@ -13,7 +13,7 @@ FPM_RPM_OPTIONS    = -t rpm -p $(PACKAGE_DIR)/rpm/$(RPM_FILENAME) --epoch 0 --rp
 
 package: create-bins prep-pkg-env $(PACKAGE_TYPES)
 
-create-bins: compile-deps
+create-bins:
 	@for I in $(INTS); do \
 		if [ $$I != "example" ]; then \
 			PACKAGE=$$(go list ./integrations/$$I/... 2>&1) ;\

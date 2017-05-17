@@ -34,11 +34,7 @@ clean:
 	@rm -rfv $(INTEGRATIONS_DIR)/*/bin $(TARGET_DIR)
 	@find . -type f -name "coverage.xml" -delete -print
 
-compile-deps:
-	@echo "=== Main === [ compile-deps ]: installing build dependencies..."
-	@go get -v -d -t ./...
-
 # Include thematic Makefiles
 include Makefile-*.mk
 
-.PHONY: all clean compile-deps
+.PHONY: all clean
