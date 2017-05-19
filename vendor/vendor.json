@@ -25,40 +25,42 @@
 		{
 			"checksumSHA1": "iuEJxoKbVSK+7Pi5tNqjPTFKB9w=",
 			"path": "github.com/newrelic/infra-integrations-sdk/args",
-			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
-			"revisionTime": "2017-05-16T14:49:59Z",
-			"version": "v0.1",
-			"versionExact": "v0.1"
+			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
+			"revisionTime": "2017-05-19T05:44:26Z",
+			"version": "v0.2",
+			"versionExact": "v0.2"
 		},
 		{
-			"checksumSHA1": "tRJ8pVl2F4BFxr59F90tjAE5RSY=",
+			"checksumSHA1": "HGbwUC2kqssT3z8ur8/DjsxH+Zs=",
 			"path": "github.com/newrelic/infra-integrations-sdk/cache",
-			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
-			"revisionTime": "2017-05-16T14:49:59Z"
+			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
+			"revisionTime": "2017-05-19T05:44:26Z",
+			"version": "v0.2",
+			"versionExact": "v0.2"
 		},
 		{
 			"checksumSHA1": "PlLKWQqm6PQj+v/QQ7gGaCWV7ow=",
 			"path": "github.com/newrelic/infra-integrations-sdk/log",
-			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
-			"revisionTime": "2017-05-16T14:49:59Z",
-			"version": "v0.1",
-			"versionExact": "v0.1"
+			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
+			"revisionTime": "2017-05-19T05:44:26Z",
+			"version": "v0.2",
+			"versionExact": "v0.2"
 		},
 		{
 			"checksumSHA1": "gf5CYmm79FoKvZ3NU7BkOK7qhbk=",
 			"path": "github.com/newrelic/infra-integrations-sdk/metric",
-			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
-			"revisionTime": "2017-05-16T14:49:59Z",
-			"version": "v0.1",
-			"versionExact": "v0.1"
+			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
+			"revisionTime": "2017-05-19T05:44:26Z",
+			"version": "v0.2",
+			"versionExact": "v0.2"
 		},
 		{
 			"checksumSHA1": "0U/4e8cZ1vkHha4Q5/s9U3twSJI=",
 			"path": "github.com/newrelic/infra-integrations-sdk/sdk",
-			"revision": "466afa119209cede5853d66de5f903c7d1de9340",
-			"revisionTime": "2017-05-16T14:49:59Z",
-			"version": "v0.1",
-			"versionExact": "v0.1"
+			"revision": "4b27bd567b8dda564c388f92f0bf93af0e8fdecc",
+			"revisionTime": "2017-05-19T05:44:26Z",
+			"version": "v0.2",
+			"versionExact": "v0.2"
 		},
 		{
 			"checksumSHA1": "Dbw6GrXllNPecT0AnoOyAiv66EI=",
