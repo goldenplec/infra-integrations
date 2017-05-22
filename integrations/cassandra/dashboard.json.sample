@@ -1,0 +1,182 @@
+  {
+    "account_id": ACCOUNT_ID,
+    "title": "Cassandra",
+    "icon": "bar-chart",
+    "filter": {
+      "key_names": ["hostname", "label.env", "label.role", "software.version"],
+      "event_types": ["DatastoreSample"],
+      "filter_first": false
+    },
+    "widgets": [{
+      "title": "Client Request Rates",
+      "nrql": "SELECT average(`provider.CASReadLatencyPerSecond`) AS 'Cas Write', average(`provider.CASReadLatencyPerSecond`) AS 'Cas Read', average(`provider.ViewWriteLatencyPerSecond`) AS 'View Write', average(`provider.rangeSliceLatencyPerSecond`) AS 'Range Slice', average(`provider.readLatencyPerSecond`) AS 'Read', average(`provider.writeLatencyPerSecond`) AS 'Write' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 2,
+      "height": 2,
+      "row": 1,
+      "column": 1,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Cassandra",
+      "nrql": null,
+      "width": 1,
+      "height": 1,
+      "row": 1,
+      "column": 3,
+      "notes": null,
+      "event_types": null,
+      "facet": null,
+      "agent_ids": null,
+      "duration": null,
+      "metrics": null,
+      "raw_metric_name": null,
+      "end_time": null,
+      "source_account_id": null,
+      "customizations": {
+        "markdown": "::: beyond\n **Cassandra** \n\nApache Cassandra is one of the most popular NoSQL database management system. It offers high scalability and performance, strong security, and continuous availability with no single point of failure.\n\n___\n\n ![](https://integrations.nr-assets.net/icons/dashboards.png) [View all integration dashboards](/accounts/ACCOUNT_ID/dashboards?filter=infrastructurepro@newrelic.com)\n:::"
+      }
+    }, {
+      "title": "Write Latency",
+      "nrql": "SELECT average(`provider.writeLatency50thPercentile`) as '50th', average(`provider.writeLatency75thPercentile`) as '75th', average(`provider.writeLatency95thPercentile`) as '95th', average(`provider.writeLatency98thPercentile`) as '98th', average(`provider.writeLatency99thPercentile`) as '99th' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 2,
+      "column": 3,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Read Latency",
+      "nrql": "SELECT average(`provider.readLatency50thPercentile`) as '50th', average(`provider.readLatency75thPercentile`) as '75th', average(`provider.readLatency95thPercentile`) as '95th',average(`provider.readLatency98thPercentile`) as '98th', average(`provider.readLatency99thPercentile`) as '99th' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 3,
+      "column": 3,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Pending Request Pool Tasks",
+      "nrql": "SELECT average(`provider.requestCounterMutationStagePendingTasks`) AS 'Counter Mutation Stage', average(`provider.requestViewMutationStagePendingTasks`) AS 'View Mutation Stage', average(`provider.requestReadRepairStagePendingTasks`) AS 'Read Repair Stage', average(`provider.requestReadStagePendingTasks`)AS 'Read Stage', average(`provider.requestRequestResponseStagePendingTasks`)AS 'Request Response Stage', average(`provider.requestMutationStagePendingTasks`)AS 'Mutation Stage' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 3,
+      "column": 1,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Active Request Pool Threads",
+      "nrql": "SELECT average(`provider.requestCounterMutationStageActiveTasks`) AS 'Counter Mutation Stage', average(`provider.requestViewMutationStageActiveTasks`) AS 'View Mutation Stage', average(`provider.requestReadRepairStageActiveTasks`) AS 'Read Repair Stage', average(`provider.requestReadStageActiveTasks`)AS 'Read Stage', average(`provider.requestRequestResponseStageActiveTasks`)AS 'Request Response Stage', average(`provider.requestMutationStageActiveTasks`)AS 'Mutation Stage' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 3,
+      "column": 2,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Cassandra Inventory",
+      "nrql": null,
+      "width": 1,
+      "height": 2,
+      "row": 3,
+      "column": 3,
+      "notes": null,
+      "event_types": null,
+      "facet": null,
+      "agent_ids": null,
+      "duration": null,
+      "metrics": null,
+      "raw_metric_name": null,
+      "end_time": null,
+      "source_account_id": null,
+      "customizations": {
+        "sources": ["database/cassandra"],
+        "filters": {}
+      }
+    }, {
+      "title": "Pending Read Tasks",
+      "nrql": "SELECT average(`Provider.Threading.ThreadCount`) AS ThreadCount FROM DatastoreSample WHERE provider = 'CassandraServer' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 4,
+      "column": 1,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Active Read Tasks",
+      "nrql": "SELECT average(`provider.requestReadStageActiveTasks`) AS 'Read Stage' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 4,
+      "column": 2,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Pending internal threadpool tasks",
+      "nrql": "SELECT average(`provider.internalAntiEntropyStageActiveTasks`) AS 'AntiEntropyStage', average(`provider.internalCacheCleanupExecutorActiveTasks`) AS 'CacheCleanupExecutor', average(`provider.internalCompactionExecutorActiveTasks`) AS 'CompactionExecutor', average(`provider.internalGossipStageActiveTasks`) AS 'GossipStage', average(`provider.internalHintsDispatcherActiveTasks`) AS 'HintsDispatcher', average(`provider.internalInternalResponseStageActiveTasks`) AS 'InternalResponseStage', average(`provider.internalMemtableFlushWriterActiveTasks`) AS 'MemtableFlushWriter', average(`provider.internalMemtablePostFlushActiveTasks`) AS 'MemtablePostFlush', average(`provider.internalMemtableReclaimMemoryActiveTasks`) AS 'MemtableReclaimMemory', average(`provider.internalMigrationStageActiveTasks`) AS 'MigrationStage', average(`provider.internalMiscStageActiveTasks`) AS 'MiscStage', average(`provider.internalPendingRangeCalculatorActiveTasks`) AS 'PendingRangeCalculator', average(`provider.internalSamplerActiveTasks`) AS 'Sampler', average(`provider.internalSecondaryIndexManagementActiveTasks`) AS 'SecondaryIndexManagement', average(`provider.internalValidationExecutorActiveTasks`) AS 'ValidationExecutor' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 5,
+      "column": 1,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Active internal threadpool tasks",
+      "nrql": "SELECT average(`provider.internalAntiEntropyStagePendingTasks`) AS 'AntiEntropyStage', average(`provider.internalCacheCleanupExecutorActiveTasks`) AS 'CacheCleanupExecutor', average(`provider.internalCompactionExecutorActiveTasks`) AS 'CompactionExecutor', average(`provider.internalGossipStageActiveTasks`) AS 'GossipStage', average(`provider.internalHintsDispatcherActiveTasks`) AS 'HintsDispatcher', average(`provider.internalInternalResponseStageActiveTasks`) AS 'InternalResponseStage', average(`provider.internalMemtableFlushWriterActiveTasks`) AS 'MemtableFlushWriter', average(`provider.internalMemtablePostFlushActiveTasks`) AS 'MemtablePostFlush', average(`provider.internalMemtableReclaimMemoryActiveTasks`) AS 'MemtableReclaimMemory', average(`provider.internalMigrationStageActiveTasks`) AS 'MigrationStage', average(`provider.internalMiscStageActiveTasks`) AS 'MiscStage', average(`provider.internalPendingRangeCalculatorActiveTasks`) AS 'PendingRangeCalculator', average(`provider.internalSamplerActiveTasks`) AS 'Sampler', average(`provider.internalSecondaryIndexManagementActiveTasks`) AS 'SecondaryIndexManagement', average(`provider.internalValidationExecutorActiveTasks`) AS 'ValidationExecutor' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 5,
+      "column": 2,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Hints",
+      "nrql": "SELECT average(`provider.totalHintsInProgress`) AS 'In Progress/Count', average(`provider.totalHints`) AS '/Count' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 6,
+      "column": 1,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }, {
+      "title": "Dropped Message Count",
+      "nrql": "SELECT average(`provider.droppedBatchRemoveMessagesCount`) AS 'Batch Remove /Count', average(`provider.droppedBatchStoreMessagesCount`) AS 'Batch Store /Count', average(`provider.droppedCounterMutationMessagesCount`) AS 'Counter Mutation /Count', average(`provider.droppedHintMessagesCount`) AS 'Hint /Count', average(`provider.droppedMutationMessagesCount`) AS 'Mutation /Count', average(`provider.droppedPagedRangeMessagesCount`) AS 'Paged Range /Count', average(`provider.droppedRangeSliceMessagesCount`) AS 'Range Slice /Count', average(`provider.droppedReadMessagesCount`) AS 'Read /Count', average(`provider.droppedReadRepairMessagesCount`) AS 'Read Repair /Count', average(`provider.droppedRequestResponseMessagesCount`) AS 'Request Response /Count', average(`provider.droppedTraceMessagesCount`) AS 'Trace /Count' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 6,
+      "column": 2,
+      "event_types": ["DatastoreSample"],
+      "facet": null,
+      "customizations": null,
+      "notes": null
+    }]
+  }

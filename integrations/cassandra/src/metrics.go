@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os/exec"
-	"regexp"
 	"strconv"
 	"strings"
 
@@ -136,10 +135,8 @@ func getMetrics() (map[string]interface{}, error) {
 	defer jmx.Close()
 
 	metrics := make(map[string]interface{})
-	re, _ := regexp.Compile(",?attr=.*$")
 
 	for _, query := range jmxPatterns {
-		query = re.ReplaceAllString(query, "")
 		q, err := jmx.Query(query)
 		if err != nil {
 			return nil, err
