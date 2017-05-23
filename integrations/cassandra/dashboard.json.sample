@@ -228,6 +228,21 @@
       "notes": null
     },
     {
+      "title": "Disk Utilization",
+      "nrql": "SELECT average(totalUtilizationPercent) FROM StorageSample WHERE tag_role = 'cassandra' FACET entityName TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "faceted_line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 6,
+      "column": 3,
+      "event_types": [
+        "StorageSample"
+      ],
+      "facet": "entityName",
+      "customizations": null,
+      "notes": null
+    },
+    {
       "title": "Memtable sizes",
       "nrql": "SELECT sum(`provider.onHeapMemtablesDataSize`) AS 'On Heap', sum(`provider.offHeapMemtablesDataSize`) AS 'Off Heap' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
       "process_as": "line_chart",
@@ -258,6 +273,21 @@
       "notes": null
     },
     {
+      "title": "Load Average By Host",
+      "nrql": "SELECT average(loadAverageOneMinute) FROM SystemSample WHERE tag_role = 'cassandra' FACET entityName  UNTIL 1 minute AGO",
+      "process_as": "faceted_line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 7,
+      "column": 3,
+      "event_types": [
+        "SystemSample"
+      ],
+      "facet": "entityName",
+      "customizations": null,
+      "notes": null
+    },
+    {
       "title": "Hints",
       "nrql": "SELECT average(`provider.totalHintsInProgress`) AS 'In Progress/Count', average(`provider.totalHints`) AS '/Count' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
       "process_as": "line_chart",
@@ -284,6 +314,21 @@
         "DatastoreSample"
       ],
       "facet": null,
+      "customizations": null,
+      "notes": null
+    },
+    {
+      "title": "CPU By Host",
+      "nrql": "SELECT average(cpuPercent) FROM SystemSample WHERE tag_role = 'cassandra' FACET entityName TIMESERIES UNTIL 1 minute AGO",
+      "process_as": "faceted_line_chart",
+      "width": 1,
+      "height": 1,
+      "row": 8,
+      "column": 3,
+      "event_types": [
+        "SystemSample"
+      ],
+      "facet": "entityName",
       "customizations": null,
       "notes": null
     }
