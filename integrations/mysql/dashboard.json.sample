@@ -3,7 +3,7 @@
   "title": "MySQL",
   "icon": "bar-chart",
   "filter": {
-    "key_names": ["hostname", "label.env", "label.role", "software.Edition", "software.Version", "cluster.NodeType"],
+    "key_names": ["hostname", "label.env", "label.role", "software.edition", "software.version", "cluster.nodeType"],
     "event_types": ["DatastoreSample"],
     "filter_first": false
     },

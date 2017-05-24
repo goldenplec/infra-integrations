@@ -44,9 +44,9 @@ var defaultMetrics = map[string][]interface{}{
 	"provider.threadsRunning":                          {"Threads_running", metric.GAUGE},
 	"provider.qCacheUtilization":                       {qCacheUtilization, metric.GAUGE},
 	"provider.qCacheHitRatio":                          {qCacheHitRatio, metric.GAUGE},
-	"software.Edition":                                 {"version_comment", metric.ATTRIBUTE},
-	"software.Version":                                 {"version", metric.ATTRIBUTE},
-	"cluster.NodeType":                                 {"node_type", metric.ATTRIBUTE},
+	"software.edition":                                 {"version_comment", metric.ATTRIBUTE},
+	"software.version":                                 {"version", metric.ATTRIBUTE},
+	"cluster.nodeType":                                 {"node_type", metric.ATTRIBUTE},
 }
 
 func qCacheUtilization(metrics map[string]interface{}) (float64, bool) {
