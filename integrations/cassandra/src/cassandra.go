@@ -21,7 +21,7 @@ type argumentList struct {
 
 const (
 	integrationName    = "cassandra"
-	integrationVersion = "1.0.0"
+	integrationVersion = "0.1.0"
 )
 
 var (
