@@ -10,7 +10,7 @@ import (
 
 const (
 	integrationName    = "mysql"
-	integrationVersion = "1.0.0"
+	integrationVersion = "0.1.0"
 )
 
 type argumentList struct {
