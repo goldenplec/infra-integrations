@@ -7,12 +7,12 @@ commands:
     metrics:
         command:
           - ./bin/nr-nginx
-          - -skip_inventory
+          - -metrics
         interval: 30
 
     inventory:
         command:
           - ./bin/nr-nginx
-          - -skip_metrics
+          - -inventory
         prefix: config/nginx
         interval: 60
