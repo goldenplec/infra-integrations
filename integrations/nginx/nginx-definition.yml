@@ -14,5 +14,5 @@ commands:
         command:
           - ./bin/nr-nginx
           - -skip_metrics
-        prefix: services/nginx
+        prefix: config/nginx
         interval: 60

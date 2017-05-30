@@ -7,5 +7,5 @@ commands:
     status:
         command:
             - ./bin/nr-mysql
-        prefix: database/mysql
+        prefix: config/mysql
         interval: 30

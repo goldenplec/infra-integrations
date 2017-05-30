@@ -13,5 +13,5 @@ commands:
         command:
           - ./bin/nr-apache
           - -skip_metrics
-        prefix: services/apache
+        prefix: config/apache
         interval: 60

@@ -14,4 +14,4 @@ commands:
           - ./bin/nr-cassandra
           - --inventory
         interval: 60
-        prefix: database/cassandra
+        prefix: config/cassandra
