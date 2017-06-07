@@ -14,7 +14,7 @@ type argumentList struct {
 
 const (
 	integrationName    = "nginx"
-	integrationVersion = "0.1.0"
+	integrationVersion = "0.2.0"
 )
 
 var (
