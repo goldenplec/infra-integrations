@@ -175,4 +175,6 @@ var jmxPatterns = []string{
 	"org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=WriteLatency",
 	"org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=LiveSSTableCount",
 	"org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=PendingCompactions",
+	"org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=AllMemtablesHeapSize",
+	"org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=AllMemtablesOffHeapSize",
 }
