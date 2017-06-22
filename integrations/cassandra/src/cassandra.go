@@ -13,9 +13,9 @@ type argumentList struct {
 	sdk_args.DefaultArgumentList
 
 	Hostname   string `default:"localhost" help:"Hostname or IP where Cassandra is running."`
-	Port       int    `default:"3306" help:"Port on which JMX server is listening."`
-	Username   string `help:"Username for accessing JMX."`
-	Password   string `help:"Password for the given user."`
+	Port       int    `default:"7199" help:"Port on which JMX server is listening."`
+	Username   string `default:"" help:"Username for accessing JMX."`
+	Password   string `default:"" help:"Password for the given user."`
 	ConfigPath string `default:"/etc/cassandra.yaml" help:"Cassandra configuration file."`
 }
 
