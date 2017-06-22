@@ -4,10 +4,8 @@
   "icon": "bar-chart",
   "filter": {
     "key_names": [
-      "cluster.datacenter",
       "cluster.name",
-      "cluster.rack",
-      "hostname",
+      "entityName",
       "label.env",
       "label.role",
       "provider.keyspace",
@@ -55,8 +53,8 @@
       }
     },
     {
-      "title": "Write Latency",
-      "nrql": "SELECT average(`provider.writeLatency50thPercentile`) as '50th', average(`provider.writeLatency75thPercentile`) as '75th', average(`provider.writeLatency95thPercentile`) as '95th', average(`provider.writeLatency98thPercentile`) as '98th', average(`provider.writeLatency99thPercentile`) as '99th' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "title": "Write Latency (ms)",
+      "nrql": "SELECT average(`provider.writeLatency50thPercentile`)/1000 as '50th', average(`provider.writeLatency75thPercentile`)/1000 as '75th', average(`provider.writeLatency95thPercentile`)/1000 as '95th', average(`provider.writeLatency98thPercentile`)/1000 as '98th', average(`provider.writeLatency99thPercentile`)/1000 as '99th' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
       "process_as": "line_chart",
       "width": 1,
       "height": 1,
@@ -86,7 +84,7 @@
     },
     {
       "title": "Active Request Pool Threads",
-      "nrql": "SELECT average(`provider.requestCounterMutationStageActiveTasks`) AS 'Counter Mutation Stage', average(`provider.requestViewMutationStageActiveTasks`) AS 'View Mutation Stage', average(`provider.requestReadRepairStageActiveTasks`) AS 'Read Repair Stage', average(`provider.requestReadStageActiveTasks`)AS 'Read Stage', average(`provider.requestRequestResponseStageActiveTasks`)AS 'Request Response Stage', average(`provider.requestMutationStageActiveTasks`)AS 'Mutation Stage' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "nrql": "SELECT max(`provider.requestCounterMutationStageActiveTasks`) AS 'Counter Mutation Stage', max(`provider.requestViewMutationStageActiveTasks`) AS 'View Mutation Stage', max(`provider.requestReadRepairStageActiveTasks`) AS 'Read Repair Stage', max(`provider.requestReadStageActiveTasks`)AS 'Read Stage', max(`provider.requestRequestResponseStageActiveTasks`)AS 'Request Response Stage', max(`provider.requestMutationStageActiveTasks`)AS 'Mutation Stage' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
       "process_as": "line_chart",
       "width": 1,
       "height": 1,
@@ -100,8 +98,8 @@
       "notes": null
     },
     {
-      "title": "Read Latency",
-      "nrql": "SELECT average(`provider.readLatency50thPercentile`) as '50th', average(`provider.readLatency75thPercentile`) as '75th', average(`provider.readLatency95thPercentile`) as '95th',average(`provider.readLatency98thPercentile`) as '98th', average(`provider.readLatency99thPercentile`) as '99th' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
+      "title": "Read Latency (ms)",
+      "nrql": "SELECT average(`provider.readLatency50thPercentile`)/1000 as '50th', average(`provider.readLatency75thPercentile`)/1000 as '75th', average(`provider.readLatency95thPercentile`)/1000 as '95th',average(`provider.readLatency98thPercentile`)/1000 as '98th', average(`provider.readLatency99thPercentile`)/1000 as '99th' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
       "process_as": "line_chart",
       "width": 1,
       "height": 1,
@@ -116,7 +114,7 @@
     },
     {
       "title": "Pending Read Tasks",
-      "nrql": "SELECT average(`Provider.Threading.ThreadCount`) AS ThreadCount FROM DatastoreSample WHERE provider = 'CassandraServer' TIMESERIES UNTIL 1 minute AGO",
+      "nrql": "SELECT average(`provider.requestReadStagePendingTasks`) AS 'Read Stage' FROM DatastoreSample WHERE provider = 'Cassandra' TIMESERIES UNTIL 1 minute AGO",
       "process_as": "line_chart",
       "width": 1,
       "height": 1,
@@ -274,7 +272,7 @@
     },
     {
       "title": "Load Average By Host",
-      "nrql": "SELECT average(loadAverageOneMinute) FROM SystemSample WHERE tag_role = 'cassandra' FACET entityName  UNTIL 1 minute AGO",
+      "nrql": "SELECT average(loadAverageOneMinute) FROM SystemSample WHERE tag_role = 'cassandra' FACET entityName  TIMESERIES UNTIL 1 minute AGO",
       "process_as": "faceted_line_chart",
       "width": 1,
       "height": 1,
