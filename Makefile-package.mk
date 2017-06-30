@@ -1,15 +1,21 @@
 PACKAGE_TYPES     ?= deb rpm
 PUSH              ?= false
-PROJECT_NAME       = newrelic-integrations
+PROJECT_NAME       = newrelic-infra-integrations
 BINS_PREFIX        = nr
 BINS_DIR           = $(TARGET_DIR)/bin/linux_amd64
 SOURCE_DIR         = $(TARGET_DIR)/source
 PACKAGE_DIR        = $(TARGET_DIR)/package
 DEB_FILENAME      := $(PROJECT_NAME)_$(VERSION)_amd64.deb
 RPM_FILENAME      := $(PROJECT_NAME)-$(subst -,_,$(VERSION))-1.x86_64.rpm
-FPM_COMMON_OPTIONS = --verbose -C $(SOURCE_DIR) -s dir -n $(PROJECT_NAME) -v $(VERSION) --prefix "" --iteration 1 --license GPL --vendor "New Relic, Inc." -m Jenkins --url https://newrelic.com/infrastructure --config-files /etc/newrelic-infra/ --description "This is a fancy description about a package that does lots of fancy things. I need this description to be longer so I'm just writing that."
-FPM_DEB_OPTIONS    = -t deb -p $(PACKAGE_DIR)/deb/$(DEB_FILENAME)
-FPM_RPM_OPTIONS    = -t rpm -p $(PACKAGE_DIR)/rpm/$(RPM_FILENAME) --epoch 0 --rpm-summary "This is a fancy summary."
+LICENSE            = "https://newrelic.com/terms (also see LICENSE.txt installed with this package)"
+VENDOR             = "New Relic, Inc."
+PACKAGER           = "New Relic Infrastructure Team <infrastructure-eng@newrelic.com>"
+PACKAGE_URL        = "https://www.newrelic.com/infrastructure"
+SUMMARY            = "New Relic Infrastructure Integrations"
+DESCRIPTION        = "New Relic Infrastructure Integrations extend the core New Relic\nInfrastructure agent's capabilities to allow you to collect metric and\nlive state data from your infrastructure components such as MySQL,\nNGINX and Cassandra."
+FPM_COMMON_OPTIONS = --verbose -C $(SOURCE_DIR) -s dir -n $(PROJECT_NAME) -v $(VERSION) --prefix "" --iteration 1 --license $(LICENSE) --vendor $(VENDOR) -m $(PACKAGER) --url $(PACKAGE_URL) --config-files /etc/newrelic-infra/ --description "$$(printf $(DESCRIPTION))"
+FPM_DEB_OPTIONS    = -t deb -p $(PACKAGE_DIR)/deb/$(DEB_FILENAME) --deb-recommends "nrjmx"
+FPM_RPM_OPTIONS    = -t rpm -p $(PACKAGE_DIR)/rpm/$(RPM_FILENAME) --epoch 0 --rpm-summary $(SUMMARY)
 
 package: create-bins prep-pkg-env $(PACKAGE_TYPES)
 
