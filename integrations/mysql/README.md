@@ -30,11 +30,6 @@ In order to use the MySQL Integration it is required to configure `mysql-config.
 
 You can view your data in Insights by creating your own custom NRQL queries. To do so use the **DatastoreSample** event type and the **MySQL** provider.
 
-#### Dashboard usage
-You can also view your data using a template dashboard for the MySQL Integration. In order to do this, configure `dashboard.json.sample`
-* replace all occurrences of *ACCOUNT_ID* with your account ID
-* import a dashboard using New Relic Insights
-
 ## Integration development usage
 Assuming that you have the source code and Go tool installed you can build and run the MySQL Integration locally.
 * Go to the directory of the MySQL Integration and build it

@@ -28,12 +28,6 @@ In order to use the NGINX Integration it is required to configure `nginx-config.
 
 You can view your data in Insights by creating your own custom NRQL queries. To do so use the **LoadBalancerSample** event type and the **NGINX** provider.
 
-#### Dashboard usage
-You can also view your data using a template dashboard for the the NGINX Integration. In order to do this, configure `dashboard.json.sample`
-* replace all occurrences of *ACCOUNT_ID* with your account ID  
-* import a dashboard using New Relic Insights
-
-
 ## Integration development usage
 Assuming that you have source code you can build and run the NGINX Integration locally.
 
