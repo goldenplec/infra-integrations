@@ -7,9 +7,6 @@ Data is obtained by querying directly the database for its status and configurat
 See [metrics]() or [inventory]() for more details about collected data and review [dashboard]() in order to know how the data is presented.
 --->
 
-## Requirements
-* MySQL database version 5.7
-
 ## Configuration
 It is required to create a user with [replication privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_replication-client). Execute the following command, replacing \<SET_PASSWORD> with selected password.
 ```bash
@@ -46,9 +43,3 @@ $ ./bin/nr-mysql -help
 ```
 
 For managing external dependencies [govendor tool](https://github.com/kardianos/govendor) is used. It is required to lock all external dependencies to specific version (if possible) into vendor directory.
-
-## Compatibility
-The Infrastructure Integration for MySQL is available for
-* OS: CentOS
-* version: 5.7.x
-* edition: MySQL Community Edition

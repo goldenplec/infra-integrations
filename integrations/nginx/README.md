@@ -7,9 +7,6 @@ Inventory data is obtained from the configuration files and metrics from the sta
 See [metrics]() or [inventory]() for more details about collected data and review [dashboard]() in order to know how the data is presented.
 --->
 
-## Requirements
-* Installed version 1.10 for NGINX Open Source or 1.11 for NGINX Plus
-
 ## Configuration
 * Depending on which NGINX edition you use please update your configuration enabling
   * [HTTP stub status module](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html) for NGINX Open Source
@@ -45,9 +42,3 @@ $ ./bin/nr-nginx -help
 ```
 
 For managing external dependencies [govendor tool](https://github.com/kardianos/govendor) is used. It is required to lock all external dependencies to specific version (if possible) into vendor directory.
-
-## Compatibility
-The Infrastructure Integration for NGINX is available for
-* OS: CentOS
-* edition: NGINX Open Source or NGINX Plus
-* version: 1.10.x for NGINX Open Source or 1.11.x for NGINX Plus

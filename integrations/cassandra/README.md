@@ -40,9 +40,3 @@ $ ./bin/nr-cassandra --help
 ```
 
 For managing external dependencies [govendor tool](https://github.com/kardianos/govendor) is used. It is required to lock all external dependencies to specific version (if possible) into vendor directory.
-
-## Compatibility
-The Infrastructure Integration for Cassandra is available for
-* OS: CentOS
-* edition: Community
-* version: 3.x
