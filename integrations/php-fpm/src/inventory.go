@@ -10,11 +10,7 @@ import (
 	"github.com/newrelic/infra-integrations-sdk/sdk"
 )
 
-<<<<<<< HEAD
 func populateInventory(reader *bufio.Reader, inventory map[string]sdk.Inventory) error {
-=======
-func populateInventory(reader *bufio.Reader, inventory sdk.Inventory) error {
->>>>>>> upstream/master
 	var curCmd string
 	var curValue string
 
@@ -48,11 +44,7 @@ func populateInventory(reader *bufio.Reader, inventory sdk.Inventory) error {
 		case ';':
 			// parse end statement
 			prefix = append(prefix, curCmd)
-<<<<<<< HEAD
 			inventory[strings.Join(prefix, "/")] = sdk.Inventory{"value": curValue}
-=======
-			inventory.SetItem(strings.Join(prefix, "/"), "value", curValue)
->>>>>>> upstream/master
 			prefix = prefix[:len(prefix)-1]
 
 			curValue = ""
@@ -85,11 +77,7 @@ func populateInventory(reader *bufio.Reader, inventory sdk.Inventory) error {
 	}
 }
 
-<<<<<<< HEAD
 func getInventoryData(inventory map[string]sdk.Inventory) error {
-=======
-func setInventoryData(inventory sdk.Inventory) error {
->>>>>>> upstream/master
 	f, err := os.Open(args.ConfigPath)
 	if err != nil {
 		return err

@@ -49,6 +49,7 @@ func underscore(s string) string {
 // SetupArgs parses a struct's definition and populates the arguments out of the
 // fields it defines. Each of the fields in the struct can define their defaults
 // and help string by using tags:
+<<<<<<< HEAD
 //	type Arguments struct {
 //              DefaultArgumentList
 //		Argument1  bool   `default:"false" help:"This is the help we will print"`
@@ -58,13 +59,31 @@ func underscore(s string) string {
 //
 // The fields int he struct will be populated with the values set either from the
 // command line or from environment variables.
+=======
+//
+//  type Arguments struct {
+//     	DefaultArgumentList
+//     	Argument1 bool   `default:"false" help:"This is the help we will print"`
+//     	Argument2 int    `default:"1" help:"This is the help we will print"`
+//     	Argument3 string `default:"value" help:"This is the help we will print"`
+//  }
+//
+// The fields in the struct will be populated with the values set either from
+// the command line or from environment variables.
+>>>>>>> upstream/master
 func SetupArgs(args interface{}) error {
 	err := defineFlags(args)
 	if err != nil {
 		return err
 	}
 
+<<<<<<< HEAD
 	flag.Parse()
+=======
+	if err := flag.CommandLine.Parse(os.Args[1:]); err != nil {
+		return err
+	}
+>>>>>>> upstream/master
 
 	// Override flags from environment variables with the same name
 	flag.VisitAll(getArgsFromEnv())
@@ -122,6 +141,11 @@ func defineFlags(args interface{}) error {
 			flag.BoolVar(argDefault, argName, boolVal, helpValue)
 		case *string:
 			flag.StringVar(argDefault, argName, defaultValue, helpValue)
+<<<<<<< HEAD
+=======
+		case *JSON:
+			jsonVar(argDefault, argName, defaultValue, helpValue)
+>>>>>>> upstream/master
 		case *DefaultArgumentList:
 			err := defineFlags(argDefault)
 			if err != nil {

@@ -23,11 +23,7 @@ This is the description about how to run the NGINX Integration with New Relic In
 
 In order to use the NGINX Integration it is required to configure `nginx-config.yml.sample` file. Firstly, rename the file to `nginx-config.yml`. Then, depending on your needs, specify all instances that you want to monitor. Once this is done, restart the Infrastructure agent.
 
-<<<<<<< HEAD
 You can view your data in Insights by creating your own custom NRQL queries. To do so use the **LoadBalancerSample** event type and the **NGINX** provider.
-=======
-You can view your data in Insights by creating your own custom NRQL queries. To do so use the **NginxSample** event type.
->>>>>>> upstream/master
 
 ## Integration development usage
 Assuming that you have source code you can build and run the NGINX Integration locally.

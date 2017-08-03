@@ -1,6 +1,10 @@
 package main
 
 import (
+<<<<<<< HEAD
+=======
+	"reflect"
+>>>>>>> upstream/master
 	"testing"
 
 	"github.com/newrelic/infra-integrations-sdk/metric"
@@ -27,7 +31,11 @@ func TestPopulatelMetrics(t *testing.T) {
 		"functionSource": {functionSource, metric.GAUGE},
 	}
 
+<<<<<<< HEAD
 	var sample = metric.NewMetricSet("eventType", "provider")
+=======
+	var sample = metric.NewMetricSet("eventType")
+>>>>>>> upstream/master
 	populateMetrics(&sample, rawMetrics, metricDefinition)
 
 	if sample["rawMetric1"] != 1 {
@@ -54,6 +62,7 @@ func TestPopulatelMetrics(t *testing.T) {
 
 func TestPopulateInventory(t *testing.T) {
 	var rawInventory = map[string]interface{}{
+<<<<<<< HEAD
 		"key_1": 1,
 		"key_2": 2,
 		"key_3": "foo",
@@ -72,5 +81,29 @@ func TestPopulateInventory(t *testing.T) {
 		} else if inventory[key]["value"] != value {
 			t.Error()
 		}
+=======
+		"key_1":                 1,
+		"key_2":                 2,
+		"key_3":                 "foo",
+		"key_4":                 map[interface{}]interface{}{"test": 2},
+		"my_important_password": "12345",
+		"key_6":                 map[interface{}]interface{}{"otherImportantPassword": 54321},
+	}
+
+	inventory := make(sdk.Inventory)
+	populateInventory(inventory, rawInventory)
+
+	expected := sdk.Inventory{
+		"key_1":                 map[string]interface{}{"value": 1},
+		"key_2":                 map[string]interface{}{"value": 2},
+		"key_3":                 map[string]interface{}{"value": "foo"},
+		"key_4":                 map[string]interface{}{"test": 2},
+		"my_important_password": map[string]interface{}{"value": "(omitted value)"},
+		"key_6":                 map[string]interface{}{"otherImportantPassword": "(omitted value)"},
+	}
+
+	if !reflect.DeepEqual(inventory, expected) {
+		t.Errorf("Expected: %v. Actual: %v", expected, inventory)
+>>>>>>> upstream/master
 	}
 }

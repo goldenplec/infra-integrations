@@ -16,7 +16,6 @@ import (
 )
 
 var metricsPlusDefinition = map[string][]interface{}{
-<<<<<<< HEAD
 	"provider.connectionsActive":            {"connections.active", metric.GAUGE},
 	"provider.connectionsIdle":              {"connections.idle", metric.GAUGE},
 	"provider.connectionsAcceptedPerSecond": {"connections.accepted", metric.COUNTER},
@@ -36,27 +35,6 @@ var metricsStandardDefinition = map[string][]interface{}{
 	"provider.connectionsDroppedPerSecond":  {connectionsDroppedPerSecond, metric.COUNTER},
 	"software.edition":                      {"edition", metric.ATTRIBUTE},
 	"software.version":                      {"version", metric.ATTRIBUTE},
-=======
-	"net.connectionsActive":            {"connections.active", metric.GAUGE},
-	"net.connectionsIdle":              {"connections.idle", metric.GAUGE},
-	"net.connectionsAcceptedPerSecond": {"connections.accepted", metric.RATE},
-	"net.connectionsDroppedPerSecond":  {"connections.dropped", metric.RATE},
-	"net.requestsPerSecond":            {"requests.total", metric.RATE},
-	"software.edition":                 {"edition", metric.ATTRIBUTE},
-	"software.version":                 {"version", metric.ATTRIBUTE},
-}
-
-var metricsStandardDefinition = map[string][]interface{}{
-	"net.connectionsActive":            {"active", metric.GAUGE},
-	"net.connectionsAcceptedPerSecond": {"accepted", metric.RATE},
-	"net.connectionsDroppedPerSecond":  {connectionsDropped, metric.RATE},
-	"net.connectionsReading":           {"reading", metric.GAUGE},
-	"net.connectionsWaiting":           {"waiting", metric.GAUGE},
-	"net.connectionsWriting":           {"writing", metric.GAUGE},
-	"net.requestsPerSecond":            {"requests", metric.RATE},
-	"software.edition":                 {"edition", metric.ATTRIBUTE},
-	"software.version":                 {"version", metric.ATTRIBUTE},
->>>>>>> upstream/master
 }
 
 // expressions contains the structure of the input data and defines the attributes we want to store
@@ -67,11 +45,7 @@ var nginxStatusExpressions = []*regexp.Regexp{
 	regexp.MustCompile(`Reading: (?P<reading>\d+)\s+Writing: (?P<writing>\d+)\s+Waiting: (?P<waiting>\d+)`),
 }
 
-<<<<<<< HEAD
 func connectionsDroppedPerSecond(metrics map[string]interface{}) (int, bool) {
-=======
-func connectionsDropped(metrics map[string]interface{}) (int, bool) {
->>>>>>> upstream/master
 	accepts, ok1 := metrics["accepted"].(int)
 	handled, ok2 := metrics["handled"].(int)
 
@@ -173,11 +147,7 @@ func populateMetrics(sample *metric.MetricSet, metrics map[string]interface{}, m
 			log.Warn("Can't find raw metrics in results for %s", metricName)
 			continue
 		}
-<<<<<<< HEAD
 		err := sample.AddMetric(metricName, rawMetric, metricType)
-=======
-		err := sample.SetMetric(metricName, rawMetric, metricType)
->>>>>>> upstream/master
 
 		if err != nil {
 			log.Warn("Error setting value: %s", err)

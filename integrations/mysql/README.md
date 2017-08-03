@@ -25,7 +25,11 @@ This is the description about how to run the MySQL Integration with New Relic In
 
 In order to use the MySQL Integration it is required to configure `mysql-config.yml.sample` file. Firstly, rename the file to `mysql-config.yml`. Then, depending on your needs, specify all instances that you want to monitor with correct credentials. Once this is done, restart the Infrastructure agent.
 
+<<<<<<< HEAD
 You can view your data in Insights by creating your own custom NRQL queries. To do so use the **DatastoreSample** event type and the **MySQL** provider.
+=======
+You can view your data in Insights by creating your own custom NRQL queries. To do so use the **MysqlSample** event type.
+>>>>>>> upstream/master
 
 ## Integration development usage
 Assuming that you have the source code and Go tool installed you can build and run the MySQL Integration locally.

@@ -13,13 +13,8 @@ type argumentList struct {
 }
 
 const (
-<<<<<<< HEAD
 	integrationName    = "nginx"
 	integrationVersion = "0.2.0"
-=======
-	integrationName    = "com.newrelic.nginx"
-	integrationVersion = "1.0.0"
->>>>>>> upstream/master
 )
 
 var (
@@ -32,19 +27,11 @@ func main() {
 	log.SetupLogging(args.Verbose)
 
 	if args.All || args.Inventory {
-<<<<<<< HEAD
 		fatalIfErr(getInventoryData(integration.Inventory))
 	}
 
 	if args.All || args.Metrics {
 		sample := integration.NewMetricSet("LoadBalancerSample", "NGINX")
-=======
-		fatalIfErr(setInventoryData(integration.Inventory))
-	}
-
-	if args.All || args.Metrics {
-		sample := integration.NewMetricSet("NginxSample")
->>>>>>> upstream/master
 		fatalIfErr(getMetricsData(sample))
 	}
 

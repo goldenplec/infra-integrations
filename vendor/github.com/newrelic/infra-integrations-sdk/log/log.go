@@ -17,6 +17,7 @@ func SetupLogging(verbose bool) {
 }
 
 func Debug(format string, args ...interface{}) {
+<<<<<<< HEAD
 	logrus.Debugf(format, args)
 }
 
@@ -30,6 +31,21 @@ func Warn(format string, args ...interface{}) {
 
 func Error(format string, args ...interface{}) {
 	logrus.Errorf(format, args)
+=======
+	logrus.Debugf(format, args...)
+}
+
+func Info(format string, args ...interface{}) {
+	logrus.Infof(format, args...)
+}
+
+func Warn(format string, args ...interface{}) {
+	logrus.Warnf(format, args...)
+}
+
+func Error(format string, args ...interface{}) {
+	logrus.Errorf(format, args...)
+>>>>>>> upstream/master
 }
 
 func Fatal(err error) {

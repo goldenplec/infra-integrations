@@ -6,9 +6,17 @@ instances:
     arguments:
         hostname: localhost
         port: 3306
+<<<<<<< HEAD
         username: dbuser
         password: dbpwd
         database: db
     labels:
         env: production
         role: load_balancer
+=======
+        username: newrelic
+        password: <YOUR_SELECTED_PASSWORD>
+    labels:
+        env: production
+        role: write-replica
+>>>>>>> upstream/master

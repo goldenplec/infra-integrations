@@ -1,8 +1,14 @@
 ##### Description of the problem
 
+<<<<<<< HEAD
 This form is for integrations-sdk bug reports and feature requests only.
 This is NOT a help site. Do not ask help questions here.
 If you need help, please use [newrelic support?]().
+=======
+This form is for `infra-integrations` bug reports and feature requests only.
+This is NOT a help site. Do not ask help questions here.
+If you need help, please use [newrelic support](http://support.newrelic.com/).
+>>>>>>> upstream/master
 
 Describe the bug or feature request in detail.
 
@@ -10,6 +16,7 @@ A code snippet, screenshot, and small-test help us understand.
 
 Place the appropriate label to the issue: bug, feature, enhancement, ...
 
+<<<<<<< HEAD
 ##### Integrations SDK version
 
 - [ ] dev
@@ -21,6 +28,13 @@ Place the appropriate label to the issue: bug, feature, enhancement, ...
 - [x] All of them
 - [ ] 1.8
 - [ ] 1.7
+=======
+##### Infrastructure Integration
+
+- [ ] NGINX
+- [ ] MySQL
+- [ ] Cassandra
+>>>>>>> upstream/master
 - [ ] ...
 
 ##### OS

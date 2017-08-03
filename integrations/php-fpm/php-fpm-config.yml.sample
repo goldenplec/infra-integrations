@@ -1,0 +1,18 @@
+integration_name: com.newrelic.php-fpm
+
+instances:
+    - name: php-fpm-metrics
+      command: metrics
+      arguments:
+          status_url: http://127.0.0.1/fpm_status
+      labels:
+          env: production
+          role: load_balancer
+
+    - name: php-fpm-inventory
+      command: inventory
+      arguments:
+          config_path: /etc/php-fpm.conf
+      labels:
+          env: production
+          role: load_balancer

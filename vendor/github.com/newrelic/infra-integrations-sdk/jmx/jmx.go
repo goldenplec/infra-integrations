@@ -20,7 +20,11 @@ var cmdIn io.WriteCloser
 var cmdErr = make(chan error, 1)
 var done sync.WaitGroup
 
+<<<<<<< HEAD
 var jmxCommand = "./bin/nrjmx"
+=======
+var jmxCommand = "/usr/bin/nrjmx"
+>>>>>>> upstream/master
 
 const (
 	outTimeout    time.Duration = 1000 * time.Millisecond

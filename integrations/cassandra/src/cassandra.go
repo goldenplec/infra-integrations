@@ -20,8 +20,13 @@ type argumentList struct {
 }
 
 const (
+<<<<<<< HEAD
 	integrationName    = "cassandra"
 	integrationVersion = "0.1.0"
+=======
+	integrationName    = "com.newrelic.cassandra"
+	integrationVersion = "1.0.0"
+>>>>>>> upstream/master
 )
 
 var (
@@ -37,17 +42,30 @@ func main() {
 	defer jmx.Close()
 
 	if args.All || args.Metrics {
+<<<<<<< HEAD
 		rawMetrics, allKeyspaces, err := getMetrics()
 		fatalIfErr(err)
 
 		ms := integration.NewMetricSet("DatastoreSample", "Cassandra")
+=======
+		rawMetrics, allColumnFamilies, err := getMetrics()
+		fatalIfErr(err)
+
+		ms := integration.NewMetricSet("CassandraSample")
+>>>>>>> upstream/master
 
 		populateMetrics(ms, rawMetrics, metricsDefinition)
 		populateMetrics(ms, rawMetrics, commonDefinition)
 
+<<<<<<< HEAD
 		for _, keyspaceMetrics := range allKeyspaces {
 			ms := integration.NewMetricSet("DatastoreSample", "CassandraKeyspace")
 			populateMetrics(ms, keyspaceMetrics, keyspaceDefinition)
+=======
+		for _, columnFamilyMetrics := range allColumnFamilies {
+			ms := integration.NewMetricSet("CassandraColumnFamilySample")
+			populateMetrics(ms, columnFamilyMetrics, columnFamilyDefinition)
+>>>>>>> upstream/master
 			populateMetrics(ms, rawMetrics, commonDefinition)
 		}
 	}

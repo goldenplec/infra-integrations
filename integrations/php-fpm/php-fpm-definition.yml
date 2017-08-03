@@ -1,0 +1,18 @@
+name: com.newrelic.php-fpm
+description: Reports status and metrics for PHP-FPM
+protocol_version: 1
+os: linux
+
+commands:
+    metrics:
+        command:
+          - ./bin/nr-php-fpm
+          - -metrics
+        interval: 30
+
+    inventory:
+        command:
+          - ./bin/nr-php-fpm
+          - -inventory
+        prefix: config/php-fpm
+        interval: 30

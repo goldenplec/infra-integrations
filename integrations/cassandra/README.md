@@ -22,7 +22,12 @@ This is the description about how to run the Cassandra Integration with New Reli
 
 In order to use the Cassandra Integration it is required to configure `cassandra-config.yml.sample` file. Firstly, rename the file to `cassandra-config.yml`. Then, depending on your needs, specify all instances that you want to monitor. Once this is done, restart the Infrastructure agent.
 
+<<<<<<< HEAD
 You can view your data in Insights by creating your own custom NRQL queries. To do so use the **DatastoreSample** event type and the **Cassandra** or **CassandraKeyspace** provider.
+=======
+You can view your data in Insights by creating your own custom NRQL queries. To
+do so use **CassandraSample** or **CassandraColumnFamilySample** event types.
+>>>>>>> upstream/master
 
 ## Integration development usage
 Assuming that you have source code you can build and run the Cassandra Integration locally.

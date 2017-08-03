@@ -61,11 +61,7 @@ http {
 )
 
 func TestParseNginxConf(t *testing.T) {
-<<<<<<< HEAD
 	inventory := make(map[string]sdk.Inventory)
-=======
-	inventory := make(sdk.Inventory)
->>>>>>> upstream/master
 	err := populateInventory(bufio.NewReader(strings.NewReader(testNginxConf)), inventory)
 
 	if err != nil {

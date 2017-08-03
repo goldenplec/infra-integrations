@@ -9,8 +9,13 @@ import (
 )
 
 const (
+<<<<<<< HEAD
 	integrationName    = "mysql"
 	integrationVersion = "0.2.0"
+=======
+	integrationName    = "com.newrelic.mysql"
+	integrationVersion = "1.0.0"
+>>>>>>> upstream/master
 )
 
 type argumentList struct {
@@ -36,7 +41,11 @@ func main() {
 	fatalIfErr(err)
 	log.SetupLogging(args.Verbose)
 
+<<<<<<< HEAD
 	sample := integration.NewMetricSet("DatastoreSample", "MySQL")
+=======
+	sample := integration.NewMetricSet("MysqlSample")
+>>>>>>> upstream/master
 
 	db, err := openDB(generateDSN(args))
 	fatalIfErr(err)

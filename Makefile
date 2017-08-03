@@ -1,4 +1,5 @@
 # Global variables
+<<<<<<< HEAD
 INTEGRATIONS       ?= all
 WORKDIR            := $(shell pwd)
 INTEGRATIONS_DIR   := $(WORKDIR)/integrations
@@ -17,6 +18,12 @@ else ifneq ($(GIT_BRANCH),master)
     MAJORMINOR_VERSION = 0.0.$(subst /,-,$(GIT_BRANCH))
 endif
 VERSION = $(MAJORMINOR_VERSION).$(PATCH)
+=======
+INTEGRATIONS     ?= all
+WORKDIR          := $(shell pwd)
+INTEGRATIONS_DIR := $(WORKDIR)/integrations
+TARGET_DIR        = $(WORKDIR)/target
+>>>>>>> upstream/master
 
 # Select integrations to build
 ifeq ($(INTEGRATIONS),all)

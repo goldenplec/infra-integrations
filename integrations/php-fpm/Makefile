@@ -1,18 +1,8 @@
-<<<<<<< HEAD
 INTEGRATION  := $(shell basename $(shell pwd))
 BINARY_NAME   = nr-$(INTEGRATION)
 GO_FILES     := $(shell find . -type f -name "*.go")
 VALIDATE_DEPS = github.com/golang/lint/golint
 TEST_DEPS     = github.com/axw/gocov/gocov github.com/AlekSi/gocov-xml
-=======
-INTEGRATION     := $(shell basename $(shell pwd))
-BINARY_NAME      = nr-$(INTEGRATION)
-GO_FILES        := $(shell find . -type f -name "*.go")
-VALIDATE_DEPS    = github.com/golang/lint/golint
-TEST_DEPS        = github.com/axw/gocov/gocov github.com/AlekSi/gocov-xml
-INTEGRATIONS_DIR = /var/db/newrelic-infra/newrelic-integrations/
-CONFIG_DIR       = /etc/newrelic-infra/integrations.d
->>>>>>> upstream/master
 
 all: build
 
@@ -61,25 +51,11 @@ endif
 
 validate: validate-deps validate-only
 
-compile-deps:
-	@echo "=== $(INTEGRATION) === [ compile-deps ]: installing build dependencies..."
-	@go get -v -d -t ./...
-
-<<<<<<< HEAD
-compile-only:
+compile:
 	@echo "=== $(INTEGRATION) === [ compile ]: building $(BINARY_NAME)..."
 	@go build -v -o bin/$(BINARY_NAME) $(GO_FILES)
 
-compile: compile-deps compile-only
-=======
-bin/$(BINARY_NAME):
-	@echo "=== $(INTEGRATION) === [ compile ]: building $(BINARY_NAME)..."
-	@go build -v -o bin/$(BINARY_NAME) $(GO_FILES)
-
-compile: compile-deps bin/$(BINARY_NAME)
->>>>>>> upstream/master
-
-test-deps: compile-deps
+test-deps:
 	@echo "=== $(INTEGRATION) === [ test-deps ]: installing testing dependencies..."
 	@go get -v $(TEST_DEPS)
 
@@ -87,19 +63,7 @@ test-only:
 	@echo "=== $(INTEGRATION) === [ test ]: running unit tests..."
 	@gocov test ./... | gocov-xml > coverage.xml
 
-<<<<<<< HEAD
 
 test: test-deps test-only
 
-.PHONY: all build clean validate-deps validate-only validate compile-deps compile-only compile test-deps test-only test
-=======
-test: test-deps test-only
-
-install: bin/$(BINARY_NAME)
-	@echo "=== $(INTEGRATION) === [ install ]: installing bin/$(BINARY_NAME)..."
-	@sudo install -D --mode=755 --owner=root --strip $(ROOT)bin/$(BINARY_NAME) $(INTEGRATIONS_DIR)/bin/$(BINARY_NAME)
-	@sudo install -D --mode=644 --owner=root $(ROOT)$(INTEGRATION)-definition.yml $(INTEGRATIONS_DIR)/$(INTEGRATION)-definition.yml
-	@sudo install -D --mode=644 --owner=root $(ROOT)$(INTEGRATION)-config.yml.sample $(CONFIG_DIR)/$(INTEGRATION)-config.yml.sample
-
-.PHONY: all build clean validate-deps validate-only validate compile-deps compile test-deps test-only test install
->>>>>>> upstream/master
+.PHONY: all build clean validate-deps validate-only validate compile test-deps test-only test

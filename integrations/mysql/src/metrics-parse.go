@@ -57,9 +57,15 @@ func getRawData(db dataSource) (map[string]interface{}, map[string]interface{}, 
 	return inventory, metrics, nil
 }
 
+<<<<<<< HEAD
 func populateInventory(inventory map[string]sdk.Inventory, rawData map[string]interface{}) {
 	for name, value := range rawData {
 		inventory[name] = sdk.Inventory{"value": value}
+=======
+func populateInventory(inventory sdk.Inventory, rawData map[string]interface{}) {
+	for name, value := range rawData {
+		inventory.SetItem(name, "value", value)
+>>>>>>> upstream/master
 	}
 }
 
@@ -99,6 +105,10 @@ func populatePartialMetrics(sample *metric.MetricSet, metrics map[string]interfa
 			continue
 		}
 
+<<<<<<< HEAD
 		sample.AddMetric(metricName, rawMetric, metricType)
+=======
+		sample.SetMetric(metricName, rawMetric, metricType)
+>>>>>>> upstream/master
 	}
 }

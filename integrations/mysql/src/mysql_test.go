@@ -61,7 +61,11 @@ func TestPopulatePartialMetrics(t *testing.T) {
 		"functionSource": {functionSource, metric.GAUGE},
 	}
 
+<<<<<<< HEAD
 	var sample = metric.NewMetricSet("eventType", "provider")
+=======
+	var sample = metric.NewMetricSet("eventType")
+>>>>>>> upstream/master
 	populatePartialMetrics(&sample, rawMetrics, metricDefinition)
 
 	if sample["rawMetric1"] != 1 {
@@ -93,7 +97,11 @@ func TestPopulateInventory(t *testing.T) {
 		"key_3": "foo",
 	}
 
+<<<<<<< HEAD
 	inventory := make(map[string]sdk.Inventory)
+=======
+	inventory := make(sdk.Inventory)
+>>>>>>> upstream/master
 	populateInventory(inventory, rawInventory)
 	for key, value := range rawInventory {
 		if inventory[key]["value"] != value {
@@ -158,12 +166,20 @@ func TestPopulateMetricsWithZeroValuesInData(t *testing.T) {
 		"Key_cache_block_size": 0,
 		"Key_buffer_size":      0,
 	}
+<<<<<<< HEAD
 	ms := metric.NewMetricSet("eventType", "provider")
+=======
+	ms := metric.NewMetricSet("eventType")
+>>>>>>> upstream/master
 	populatePartialMetrics(&ms, rawMetrics, defaultMetrics)
 	populatePartialMetrics(&ms, rawMetrics, extendedMetrics)
 	populatePartialMetrics(&ms, rawMetrics, myisamMetrics)
 
+<<<<<<< HEAD
 	testMetrics := []string{"provider.qCacheUtilization", "provider.qCacheHitRatio", "provider.threadCacheMissRate", "provider.keyCacheUtilization"}
+=======
+	testMetrics := []string{"db.qCacheUtilization", "db.qCacheHitRatio", "db.threadCacheMissRate", "db.myisam.keyCacheUtilization"}
+>>>>>>> upstream/master
 
 	expected := float64(0)
 	for _, metricName := range testMetrics {

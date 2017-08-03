@@ -13,8 +13,13 @@ type SourceType int
 const (
 	// GAUGE is a value that may increase and decrease. It is stored as-is.
 	GAUGE SourceType = iota
+<<<<<<< HEAD
 	// COUNTER is an ever-growing value which might be reseted. We store the change rate.
 	COUNTER SourceType = iota
+=======
+	// RATE is an ever-growing value which might be reseted. We store the change rate.
+	RATE SourceType = iota
+>>>>>>> upstream/master
 	// DELTA is an ever-growing value which might be reseted. We store the differences between samples.
 	DELTA SourceType = iota
 	// ATTRIBUTE is any string value
@@ -25,6 +30,7 @@ const (
 type MetricSet map[string]interface{}
 
 // NewMetricSet returns a new MetricSet instance
+<<<<<<< HEAD
 func NewMetricSet(eventType string, provider string) MetricSet {
 	ms := MetricSet{}
 	ms.AddMetric("event_type", eventType, ATTRIBUTE)
@@ -34,12 +40,27 @@ func NewMetricSet(eventType string, provider string) MetricSet {
 
 // AddMetric adds a metric to the MetricSet object, sampling if sourceType requires it.
 func (ms MetricSet) AddMetric(name string, value interface{}, sourceType SourceType) error {
+=======
+func NewMetricSet(eventType string) MetricSet {
+	ms := MetricSet{}
+	ms.SetMetric("event_type", eventType, ATTRIBUTE)
+	return ms
+}
+
+// SetMetric adds a metric to the MetricSet object or updates the metric value
+// if the metric already exists, sampling if sourceType requires it.
+func (ms MetricSet) SetMetric(name string, value interface{}, sourceType SourceType) error {
+>>>>>>> upstream/master
 	var err error
 	var newValue = value
 
 	// Only sample metrics of numeric type
 	switch sourceType {
+<<<<<<< HEAD
 	case COUNTER, DELTA:
+=======
+	case RATE, DELTA:
+>>>>>>> upstream/master
 		if !isNumeric(value) {
 			return fmt.Errorf("Invalid (non-numeric) data type for metric %s", name)
 		}
